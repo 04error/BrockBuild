@@ -12,7 +12,9 @@
     <script>
       
       var WebApp = window.Telegram.WebApp;
+      
       WebApp.expand();
+      WebApp.disableVerticalSwipes();
       
       //if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -40,6 +42,8 @@
         productVersion: "1.0",
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      }).then((instance) => {
+            instance.SendMessage('WebBridge', 'InitUser', `${WebApp.initDataUnsafe.user.id}`, `${WebApp.initDataUnsafe.user.username}`);
       });
     </script>
   </body>
