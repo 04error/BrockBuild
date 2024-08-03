@@ -7,6 +7,44 @@
     <title>Unity WebGL Player | BrockClicker</title>
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+    
+    <!-- Firebase -->
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js'
+  
+      // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+      import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js'
+  
+      // Add Firebase products that you want to use
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js'
+      import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js'
+      
+    </script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyBMIBvOKqDEMpD-6R_cpsZ1dKd0KLzoYxI",
+        authDomain: "brockgame-c1bda.firebaseapp.com",
+        projectId: "brockgame-c1bda",
+        storageBucket: "brockgame-c1bda.appspot.com",
+        messagingSenderId: "17200015959",
+        appId: "1:17200015959:web:a2d342447e195ebcb25112",
+        measurementId: "G-S1P4VTRMFE"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+    <!-- FirebaseEnd -->
+
     <canvas id="unity-canvas" width=1080 height=1920 tabindex="-1" style="width: 1080px; height: 1920px; background: #CCCCCC"></canvas>
     <script src="Build/BrockBuild.loader.js"></script>
     <script>
@@ -43,7 +81,10 @@
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       }).then((instance) => {
-            instance.SendMessage('PlayerController', 'InitUser', `${WebApp.initDataUnsafe.user.id}`, `${WebApp.initDataUnsafe.user.username}`);
+            instance.SendMessage('FirebaseController', 'PushJSON', 
+            `${WebApp.initDataUnsafe.user.id}`, 
+            'name', 
+            `${WebApp.initDataUnsafe.user.username}`);
       });
     </script>
   </body>
