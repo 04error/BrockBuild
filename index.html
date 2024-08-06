@@ -135,7 +135,7 @@
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 loadingBar.style.display = "none";
-                unityInstance.SendMessage('FirebaseController', 'PostJSON', 'users 85/name/myname');
+                unityInstance.SendMessage('FirebaseController', 'PostJSON', '85/name/myname');
                 
                 // unityInstance.SendMessage('FirebaseController', 'PostJSON', 
                 //   `${WebApp.initDataUnsafe.user.id}`, 
