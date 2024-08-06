@@ -141,6 +141,8 @@
                     `${WebApp.initDataUnsafe.user.id}`, 
                     'name', 
                     `${WebApp.initDataUnsafe.user.username}`);
+
+                  unityInstance.SendMessage('FirebaseController', 'GetJSON');
               
                   unityInstance.SendMessage('PlayerController', 'InitUser', `${WebApp.initDataUnsafe.user.id}`, `${WebApp.initDataUnsafe.user.username}`);
                   
