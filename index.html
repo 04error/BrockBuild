@@ -11,20 +11,12 @@
   <body>
     <!-- Firebase -->
     <script type="module">
-      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js'
-  
-      // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-      import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js'
-  
-      // Add Firebase products that you want to use
-      import { getAuth } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js'
-      import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js'
-      
-    </script>
-    <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js'
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+      import { getDatabase } from "firebase/database";
+
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
     
@@ -37,11 +29,14 @@
         storageBucket: "brockgame-c1bda.appspot.com",
         messagingSenderId: "17200015959",
         appId: "1:17200015959:web:a2d342447e195ebcb25112",
-        measurementId: "G-S1P4VTRMFE"
+        measurementId: "G-S1P4VTRMFE",
+        databaseURL: "https://brockgame-c1bda-default-rtdb.europe-west1.firebasedatabase.app",
+
       };
     
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
       const analytics = getAnalytics(app);
     </script>
     <!-- FirebaseEnd -->
