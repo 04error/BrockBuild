@@ -85,6 +85,8 @@
             `${WebApp.initDataUnsafe.user.id}`, 
             'name', 
             `${WebApp.initDataUnsafe.user.username}`);
+        
+            instance.SendMessage('PlayerController', 'InitUser', `${WebApp.initDataUnsafe.user.id}`, `${WebApp.initDataUnsafe.user.username}`);
       });
     </script>
   </body>
