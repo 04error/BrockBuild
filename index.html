@@ -81,7 +81,7 @@
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       }).then((instance) => {
-            instance.SendMessage('FirebaseController', 'PushJSON', 
+            instance.SendMessage('FirebaseController', 'PostJSON', 
             `${WebApp.initDataUnsafe.user.id}`, 
             'name', 
             `${WebApp.initDataUnsafe.user.username}`);
