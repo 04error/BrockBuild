@@ -142,7 +142,7 @@
               }).then((unityInstance) => {
                 loadingBar.style.display = "none";
 
-                  unityInstance.SendMessage('FirebaseController', 'PushJSON', 
+                  unityInstance.SendMessage('FirebaseController', 'PostJSON', 
                     `${WebApp.initDataUnsafe.user.id}`, 
                     'name', 
                     `${WebApp.initDataUnsafe.user.username}`);
